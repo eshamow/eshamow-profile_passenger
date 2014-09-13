@@ -1,0 +1,14 @@
+{
+  "name": "eshamow-profile_passenger",
+  "version": "0.1.0",
+  "author": "eshamow",
+  "summary": "Profile to wrap Apache and Passenger components",
+  "license": "Apache 2.0",
+  "source": "https://github.com/eshamow/profile_passenger.git",
+  "project_page": "https://github.com/eshamow/profile_passenger",
+  "issues_url": "https://github.com/eshamow/profile_passenger/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
