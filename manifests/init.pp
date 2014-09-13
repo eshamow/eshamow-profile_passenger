@@ -35,7 +35,15 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class profile_passenger {
-
-
+class profile_passenger(
+  $passenger_version = $profile_passenger::params::passenger_version
+) inherits profile_passenger::params {
+  class { 'apache': } ->
+  class { 'gcc': } ->
+  class { 'ruby': } ->
+  class { 'ruby::dev': } ->
+  class { 'passenger':
+    passenger_version => $passenger_version,
+    package_ensure    => $passenger_version,
+  }
 }
