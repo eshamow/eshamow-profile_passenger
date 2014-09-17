@@ -36,7 +36,7 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class profile_passenger(
-  $passenger_version = $profile_passenger::params::passenger_version
+  $passenger_version = $profile_passenger::params::passenger_version,
   $bundler_enable    = $profile_passenger::params::bundler_enable
 ) inherits profile_passenger::params {
   class { 'apache': } ->
