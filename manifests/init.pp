@@ -43,7 +43,7 @@ class profile_passenger(
   class { 'gcc': } ->
   class { 'ruby': } ->
   class { 'ruby::dev':
-    $bundler_enable => $bundler_enable,
+    bundler_enable => $bundler_enable,
   }
   class { 'passenger':
     passenger_version => $passenger_version,
