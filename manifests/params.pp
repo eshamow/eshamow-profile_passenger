@@ -3,6 +3,6 @@ class profile_passenger::params {
   if $::osfamily == 'debian' and $::operatingsystemmajrelease == '10.04' {
     $bundler_ensure = '1.6.6'
   } else {
-    $bundler_ensure = 'true'
+    $bundler_ensure = 'installed',
   }
 }
