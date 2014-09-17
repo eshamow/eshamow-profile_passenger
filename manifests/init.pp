@@ -37,13 +37,13 @@
 #
 class profile_passenger(
   $passenger_version = $profile_passenger::params::passenger_version,
-  $bundler_enable    = $profile_passenger::params::bundler_enable
+  $bundler_ensure    = $profile_passenger::params::bundler_ensure
 ) inherits profile_passenger::params {
   class { 'apache': } ->
   class { 'gcc': } ->
   class { 'ruby': } ->
   class { 'ruby::dev':
-    bundler_enable => $bundler_enable,
+    bundler_ensure => $bundler_ensure,
   }
   class { 'passenger':
     passenger_version => $passenger_version,
