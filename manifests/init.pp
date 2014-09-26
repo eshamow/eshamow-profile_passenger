@@ -44,7 +44,7 @@ class profile_passenger(
   class { 'ruby': } ->
   class { 'ruby::dev':
     bundler_ensure => $bundler_ensure,
-  }
+  } ->
   class { 'passenger':
     passenger_version => $passenger_version,
     package_ensure    => $passenger_version,
