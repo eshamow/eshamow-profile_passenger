@@ -1,6 +1,6 @@
 {
   "name": "eshamow-profile_passenger",
-  "version": "0.1.0",
+  "version": "0.2.5",
   "author": "eshamow",
   "summary": "Profile to wrap Apache and Passenger components",
   "license": "Apache 2.0",
