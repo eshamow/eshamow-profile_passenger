@@ -1,39 +1,29 @@
 # == Class: profile_passenger
 #
-# Full description of class profile_passenger here.
+# Installs a full and opinionated Apache/Passenger stack.
 #
 # === Parameters
 #
-# Document parameters here.
+# [*passenger_version*]
+#   Version of passenger to install. Defaults to 4.0.50
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
+# [*bundler_ensure*]
+#   Version of bundler to install. Defaults to 'installed' except for on
+#   Ubuntu 10.04, where it defaults to '0.9.9'
 #
 # === Examples
 #
 #  class { 'profile_passenger':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    passenger_version => '3.0.20',
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Eric Shamow <eric.shamow@gmail.com>
 #
 # === Copyright
 #
-# Copyright 2014 Your name here, unless otherwise noted.
+# Copyright 2014 Eric Shamow
 #
 class profile_passenger(
   $passenger_version = $profile_passenger::params::passenger_version,
