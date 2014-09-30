@@ -1,6 +1,14 @@
 require 'spec_helper_acceptance'
 
-describe 'profile_passenger class' do
+describe 'profile_passenger class', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfamily')) do
+  case fact('osfamily')
+  when 'RedHat'
+    package_name = 'httpd'
+    service_name = 'httpd'
+  when 'Debian'
+    package_name = 'apache2'
+    service_name = 'apache2'
+  end
 
   context 'default parameters' do
     # Using puppet_apply as a helper
@@ -14,13 +22,13 @@ describe 'profile_passenger class' do
       apply_manifest(pp, :catch_changes  => true)
     end
 
-    #describe package('profile_passenger') do
-    #  it { should be_installed }
-    #end
+    describe package(package_name) do
+      it { is_expected.to be_installed }
+    end
 
-    #describe service('profile_passenger') do
-    #  it { should be_enabled }
-    #  it { should be_running }
-    #end
+    describe service(service_name) do
+      it { is_expected.to be_enabled }
+      it { is_expected.to be_running }
+    end
   end
 end
