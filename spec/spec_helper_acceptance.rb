@@ -6,15 +6,18 @@ unless ENV['RS_PROVISION'] == 'no'
   # systems fail on windows and osx, and install via gem on other *nixes
   foss_opts = { :default_action => 'gem_install' }
 
-  if default.is_pe?; then install_pe; else install_puppet( foss_opts ); end
-
   hosts.each do |host|
     if host['platform'] =~ /debian/
       on host, 'echo \'export PATH=/var/lib/gems/1.8/bin/:${PATH}\' >> ~/.bashrc'
+#    elsif host['platform'] =~ /redhat/
+    else
+      on host, 'yum -y install rubygems'
     end
-
     on host, "mkdir -p #{host['distmoduledir']}"
   end
+
+  if default.is_pe?; then install_pe; else install_puppet( foss_opts ); end
+
 end
 
 UNSUPPORTED_PLATFORMS = ['Suse','windows','AIX','Solaris']
