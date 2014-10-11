@@ -36,7 +36,11 @@ RSpec.configure do |c|
       on host, puppet('module','install','puppetlabs-apache','-v','1.1.1'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module','install','puppetlabs-concat','-v','1.1.1'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module','install','puppetlabs-gcc','-v','0.2.0'), { :acceptable_exit_codes => [0,1] }
-      install_package host, 'git'
+      if host['platform'] =~ /ubuntu/ && host['platform'] =~ /10/
+        install_package host, 'git-core'
+      else
+        install_package host, 'git'
+      end
       on host, "git clone https://github.com/eshamow/puppetlabs-passenger.git /etc/puppet/modules/passenger"
       on host, "cd /etc/puppet/modules/passenger && git checkout 09d181a2a818b177db106917c87327a0d8593dbb"
       on host, "git clone https://github.com/puppetlabs/puppetlabs-ruby.git /etc/puppet/modules/ruby"
