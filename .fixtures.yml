@@ -14,7 +14,7 @@ fixtures:
       ref: '0.2.0'
     passenger:
       repo: 'https://github.com/eshamow/puppetlabs-passenger.git'
-      ref: '270bf462a9942f5c534684bef2767cedb98707a0'
+      ref: '09d181a2a818b177db106917c87327a0d8593dbb'
     ruby:
       repo: 'https://github.com/puppetlabs/puppetlabs-ruby.git'
       ref: '734a33bb7f7670136e77179aafeeebb81d8d14d3'
