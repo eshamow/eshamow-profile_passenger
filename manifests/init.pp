@@ -31,7 +31,9 @@ class profile_passenger(
 ) inherits profile_passenger::params {
   class { 'apache': } ->
   class { 'gcc': } ->
-  class { 'ruby': } ->
+  class { 'ruby':
+    gem_integration_package => false,
+  } ->
   class { 'ruby::dev':
     bundler_ensure => $bundler_ensure,
   } ->
